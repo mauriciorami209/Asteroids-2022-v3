@@ -24,6 +24,7 @@ public class BulletController : MonoBehaviour
 
         // {Asteroid1, Asteroid2,....AsteroidN}
         var asteroids = FindObjectsOfType<AsteroidController>();
+        
 
         for (int i = 0; i < asteroids.Length; i++)
         {
@@ -44,9 +45,24 @@ public class BulletController : MonoBehaviour
                 GameManager.Score += 300;
                 Destroy(asteroid.gameObject);
             }
-                
-        }     
+              
+        }
 
+        // For testing
+        var enemy = FindObjectsOfType<Enemy>();
+
+        for (int j = 0; j < enemy.Length; j++)
+        {
+            var Enemy = enemy[j];
+            if (HasCollide2(Enemy))
+            {
+                Destroy(gameObject);
+                Destroy(Enemy.gameObject);
+                GameManager.Score += 100;
+
+            }
+        }
+        // For testing
     }
     private bool HasCollide(AsteroidController asteroid)
     {
@@ -66,5 +82,23 @@ public class BulletController : MonoBehaviour
        // return false;
 
     }
+
+    //For testing
+    private bool HasCollide2(Enemy enemy)
+    {
+        var enemyRadius = enemy.Radius;
+        var enemyPosition = enemy.transform.position;
+        var bulletPosition = transform.position;
+
+        var collisionDistance = enemyRadius + m_Radius;
+
+        var currentDistance = Vector3.Distance(enemyPosition, bulletPosition);
+
+        return (currentDistance < collisionDistance);
+
+      
+
+    }
+    //For testing
 
 }

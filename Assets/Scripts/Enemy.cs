@@ -13,9 +13,15 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float coolDown = 3.0f;
 
+    [SerializeField]
+    private float m_Radius; // For testing
+
 
     [SerializeField]
     private float currentTime;
+
+    public float Radius => m_Radius;// For testing
+
 
 
     // Start is called before the first frame update
@@ -40,4 +46,6 @@ public class Enemy : MonoBehaviour
         }
         transform.Translate(transform.forward * enemySpeed * Time.deltaTime);
     }
+
+   
 }

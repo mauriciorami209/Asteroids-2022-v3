@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_lifetime: 1
-  m_Radius: 0.3
+  m_Radius: 0.4
 --- !u!114 &8519276852878253683
 MonoBehaviour:
   m_ObjectHideFlags: 0
