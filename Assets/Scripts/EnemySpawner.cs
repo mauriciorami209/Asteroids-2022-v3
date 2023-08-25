@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Instantiate(enemyPrefab, spawnPos, new Quaternion());
             currentScore = spawnScore * ++countEnemy;
-            Instantiate(fastEnemyPrefab, spawnPos, new Quaternion());
+            Instantiate(fastEnemyPrefab, spawnPos, new Quaternion()); //POLYMORPHISM
 
 
 

@@ -54,7 +54,7 @@ public class BulletController : MonoBehaviour
         for (int j = 0; j < enemy.Length; j++)
         {
             var Enemy = enemy[j];
-            if (HasCollide2(Enemy))
+            if (HasCollide2(Enemy)) //ABSTRACTION
             {
                 Destroy(gameObject);
                 Destroy(Enemy.gameObject);
