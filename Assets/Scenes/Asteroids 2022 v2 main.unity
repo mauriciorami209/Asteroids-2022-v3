@@ -1253,6 +1253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2985183000233591838, guid: 01439136acccab6408d871e44fdeb737, type: 3}
+  fastEnemyPrefab: {fileID: 7974541886098826908, guid: 7e79e15fadfd18b4f9c0256a800ecd5d, type: 3}
   spawnPos: {x: -12.7, y: 0, z: 0}
   spawnScore: 1500
   currentScore: 0

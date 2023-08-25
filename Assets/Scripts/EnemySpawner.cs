@@ -8,6 +8,9 @@ public class EnemySpawner : MonoBehaviour
     private GameObject enemyPrefab;
 
     [SerializeField]
+    private GameObject fastEnemyPrefab;
+
+    [SerializeField]
     private Vector3 spawnPos;
 
     [SerializeField]
@@ -34,7 +37,9 @@ public class EnemySpawner : MonoBehaviour
         {
             Instantiate(enemyPrefab, spawnPos, new Quaternion());
             currentScore = spawnScore * ++countEnemy;
-           
+            Instantiate(fastEnemyPrefab, spawnPos, new Quaternion());
+
+
 
         }
     }
