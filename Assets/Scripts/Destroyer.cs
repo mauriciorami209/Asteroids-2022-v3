@@ -21,6 +21,7 @@ public class Destroyer : MonoBehaviour
         ship = FindObjectOfType<SpaceShip>();
         asteroids = FindObjectsOfType<AsteroidController>();
 
+
         if (ship != null)
         {
             for(int i = 0; i < asteroids.Length; i++)
@@ -39,17 +40,44 @@ public class Destroyer : MonoBehaviour
                 }
             }
         }
-            
+        UpdateCollisions();
+    }
 
+    private void UpdateCollisions()
+    {
+        var colliders = FindObjectsOfType<CustomCollider>();
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            for (int j = i+1; j< colliders.Length; j++)
+            {
+                var colliderA = colliders[i];
+                var colliderB = colliders[j];
+
+                if (colliderA != colliderB && Vector3.Distance(colliderA.transform.position, colliderB.transform.position)< (colliderA.Radius + colliderB.Radius))
+                {
+                    if (colliderA.Type == CustomCollider.ColliderType.Ship && colliderB.Type == CustomCollider.ColliderType.Bullet ||
+                         colliderA.Type == CustomCollider.ColliderType.Bullet && colliderB.Type == CustomCollider.ColliderType.Ship)
+                        continue;
+                    if (colliderA.Type == CustomCollider.ColliderType.Asteroid && colliderB.Type == CustomCollider.ColliderType.Asteroid)
+                        continue;
+
+                    Debug.Log($"Collision between {colliderA.Type} and {colliderB.Type}");
+
+                }
+            }
+        }
     }
 
     private void LoadScene()
 
     {
         if (GameManager.Lives > 0)
-            SceneManager.LoadScene("Asteroids 2022 v2 main");
+            
+
+        GameManager.LoadScene("Asteroids 2022 v2 main");
         else
-            SceneManager.LoadScene("Game Over");
+            GameManager.LoadScene("Game Over");
     }
 
 

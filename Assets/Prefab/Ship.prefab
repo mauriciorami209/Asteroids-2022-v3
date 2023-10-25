@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1268772066709857241}
   - component: {fileID: 1464129697854685725}
   - component: {fileID: 7369455536208452609}
+  - component: {fileID: -114686165645184816}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -116,10 +117,10 @@ MonoBehaviour:
   m_KeyMoveLeft: 276
   m_KeyMoveRight: 275
   m_KeyShoot: 32
-  m_speed: 0
   m_rotationSpeed: 0
   bulletPrefab: {fileID: 0}
   bulletSpeed: 0
+  m_Radius: 0
 --- !u!114 &7369455536208452609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +137,20 @@ MonoBehaviour:
   m_BottomLimit: -6
   m_leftLimit: 0
   m_rightLimit: 0
+--- !u!114 &-114686165645184816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797080344281993216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52edeb10c433ca6419fd2635c54f3986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Tag: 0
+  m_Radius: 0.5
 --- !u!1 &1861677385989121535
 GameObject:
   m_ObjectHideFlags: 0
