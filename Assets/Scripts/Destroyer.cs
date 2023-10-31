@@ -42,7 +42,7 @@ public class Destroyer : MonoBehaviour
         }
         UpdateCollisions();
     }
-
+    
     private void UpdateCollisions()
     {
         var colliders = FindObjectsOfType<CustomCollider>();
@@ -65,7 +65,9 @@ public class Destroyer : MonoBehaviour
                     Debug.Log($"Collision between {colliderA.Type} and {colliderB.Type}");
 
                 }
+
             }
+
         }
     }
 
@@ -83,15 +85,24 @@ public class Destroyer : MonoBehaviour
 
     private bool HasCollide(AsteroidController asteroid)
     {
+        CustomCollider shipCollider = ship.GetComponent<CustomCollider>();
+        CustomCollider asteroidCollider = asteroid.GetComponent<CustomCollider>();
+
+        var collisionDistance = shipCollider.Radius + asteroidCollider.Radius;
+
+        var currentDistance = Vector3.Distance(asteroid.transform.position, ship.transform.position);
+
+        return (currentDistance < collisionDistance);
+
+        /*
         var shipRadius = ship.Radius;
-       // var asteroidPosition = asteroids.transform.position;
 
         var collisionDistance = asteroid.Radius + shipRadius;
 
         var currentDistance = Vector3.Distance(asteroid.transform.position, ship.transform.position);
 
         return (currentDistance < collisionDistance);
-       
+       */
 
     }
 }

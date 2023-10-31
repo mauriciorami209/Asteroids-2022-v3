@@ -71,7 +71,7 @@ public class Spawner : MonoBehaviour
             
 
         AsteroidSize newSize = AsteroidSize.Large;
-        float scale = 1;
+        //float scale = 1;
 
 
         if (size == AsteroidSize.Large)
@@ -87,7 +87,7 @@ public class Spawner : MonoBehaviour
           //  scale = m_AsteroidSizes[0];
         }
 
-        scale = m_AsteroidSizes[(int)newSize];
+       // scale = m_AsteroidSizes[(int)newSize];
 
 
         for (int i = 0; i < max_Clones; i++)
@@ -95,7 +95,11 @@ public class Spawner : MonoBehaviour
             GameObject copy = Instantiate(m_AsteroidePrefab);
             copy.transform.position = asteroidPosition;
             copy.GetComponent<AsteroidController>().Size = newSize;
-            
+
+            //Add a CustomCollider component to the new asteroid
+            CustomCollider collider = copy.AddComponent<CustomCollider>();
+            collider.Type = CustomCollider.ColliderType.Asteroid;
+            collider.Radius = m_AsteroidSizes[(int)newSize];
 
         }
 

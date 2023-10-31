@@ -17,6 +17,7 @@ public class CustomCollider : MonoBehaviour
     public ColliderType Type
     {
         get => m_Type;
+        set => m_Type = value;
     }
     public enum ColliderType
     {
