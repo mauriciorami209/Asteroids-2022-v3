@@ -46,7 +46,8 @@ public class Destroyer : MonoBehaviour
     private void UpdateCollisions()
     {
         var colliders = FindObjectsOfType<CustomCollider>();
-
+        ColliderDebugger.DrawColliders(colliders);
+        
         for (int i = 0; i < colliders.Length; i++)
         {
             for (int j = i+1; j< colliders.Length; j++)
