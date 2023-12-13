@@ -15,8 +15,8 @@ public class SpaceShip : MonoBehaviour
     [SerializeField]
     private KeyCode m_KeyMoveRight;
 
-    [SerializeField]
-    private KeyCode m_KeyShoot;
+    //[SerializeField]
+   // private KeyCode m_KeyShoot;
 
     
     [SerializeField]
@@ -33,12 +33,25 @@ public class SpaceShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         // Get a reference to the Transform component that represents the current position of the space ship atte: Chat GPT
         _currentPos = transform;
 
        // m_MovementController = this.gameObject.GetComponent<MovementController>();
         m_MovementController = GetComponent<MovementController>();
 
+        InputManager.OnShootKeyPressed += Shoot;
+        InputManager.OnMoveKeyPressed += Move;
+        InputManager.OnRotateKeyPressed += Rotate;
+        
+    }
+
+    private void OnDestroy()
+    {
+        InputManager.OnShootKeyPressed -= Shoot;
+        InputManager.OnMoveKeyPressed -= Move;
+        InputManager.OnRotateKeyPressed -= Rotate;
+      
     }
 
     public float Radius  // Property
@@ -50,29 +63,34 @@ public class SpaceShip : MonoBehaviour
     // Update is called once per frame
    private void Update()
     {
-        if (Input.GetKey(m_KeyMoveForward))
-        {
-            m_MovementController.speed += m_SpeedIncrement;
-        }
-        if (Input.GetKey(m_KeyMoveRight))
-        {
-            Vector3 eulerAngles = new Vector3(0, 1, 0);
-            float rotationSpeed = m_rotationSpeed * Time.deltaTime;
-            transform.Rotate(eulerAngles * rotationSpeed);
-        }
-        if (Input.GetKey(m_KeyMoveLeft))
-        {
-            Vector3 eulerAngles = new Vector3(0, -1, 0);
-            float rotationSpeed = m_rotationSpeed * Time.deltaTime;
-            transform.Rotate(eulerAngles * rotationSpeed);
-
-        }
-        if (Input.GetKeyDown(m_KeyShoot))
-        {
-            var chumbimba = Instantiate(bulletPrefab, _currentPos.position, _currentPos.rotation);
-            //chumbimba.GetComponent<Rigidbody2D>().velocity = _currentPos.up * bulletSpeed * Time.deltaTime;
-
-        }
+                 
         
     }
+
+    public void Shoot()
+    {
+       var chumbimba = GameManager.BulletPool.GetObject();
+        if (chumbimba != null)
+        {
+            chumbimba.transform.position = _currentPos.position;
+            chumbimba.transform.rotation = _currentPos.rotation;
+        }
+        
+      //  var chumbimba = Instantiate(bulletPrefab, _currentPos.position, _currentPos.rotation);
+      //  var newBullet GameObject = Game
+    }
+
+    public void Move()
+    {
+        m_MovementController.speed += m_SpeedIncrement;
+    }
+
+    public void Rotate(int dir)
+    {
+        Vector3 eulerAngles = new Vector3(0, dir, 0);
+        float rotationSpeed = m_rotationSpeed * Time.deltaTime;
+        transform.Rotate(eulerAngles * rotationSpeed);
+    }
+
+    
 }

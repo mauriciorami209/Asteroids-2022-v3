@@ -9,10 +9,16 @@ public class BulletController : MonoBehaviour
     [SerializeField]
     private float m_Radius;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        Destroy(this.gameObject, m_lifetime);
+        //  Destroy(this.gameObject, m_lifetime);
+        Invoke("ReturnBullet", m_lifetime);
         
+    }
+
+    public void ReturnBullet()
+    {
+        GameManager.BulletPool.ReturnObject(this);
     }
 
     // Update is called once per frame
@@ -31,8 +37,7 @@ public class BulletController : MonoBehaviour
             var asteroid = asteroids[i];
             if (HasCollide(asteroid))
             {
-                Destroy(gameObject);
-
+                GameManager.BulletPool.ReturnObject(this);
                 Vector3 position = asteroid.transform.position;
                 
                // AsteroidController asteroide = GetComponent<AsteroidController>();

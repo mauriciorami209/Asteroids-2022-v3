@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private static Pool<BulletController> m_BulletPool;
+    private static Pool<AsteroidController> m_AsteroidPool;
+
+    public static Pool<BulletController> BulletPool => m_BulletPool;
+
+
     private static int s_Lives = 3;
     private static int s_MaxLives = 5;
     private static int m_score = 0;
@@ -12,6 +18,11 @@ public class GameManager : MonoBehaviour
 
     public static OnUpdateLives OnUpdateLives;
     public static OnUpdateScore OnUpdateScore;
+    public GameObject m_BulletPrefab;
+    public void Start()
+    {
+        m_BulletPool = new Pool<BulletController>(2, m_BulletPrefab);
+    }
 
     public static int Lives
     {
