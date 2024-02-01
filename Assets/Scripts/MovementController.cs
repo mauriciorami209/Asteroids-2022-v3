@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
+    [SerializeField]
+    private MovementSettings m_Settings;
     private Transform m_transform;
-    [SerializeField]
+    
     private Vector3 m_direccion;
-    [SerializeField]
+    
     private float m_speed;
-    [SerializeField]
+  
     private float m_MaxSpeed;
-    [SerializeField]
+ 
     private bool m_Isaccelerated = false;
-    [SerializeField]
+
     private float m_Damping = 0.5f;
 
     // Start is called before the first frame update
@@ -33,6 +35,13 @@ public class MovementController : MonoBehaviour
     void Start()
     {
         m_transform = transform;
+        m_direccion = m_Settings.direction;
+        m_speed = m_Settings.speed;
+        m_MaxSpeed = m_Settings.maxSpeed;
+        m_Isaccelerated = m_Settings.isAccelerated;
+        m_Damping = m_Settings.damping;
+
+
        // m_transform = GetComponent<Transform>();
     }
 
