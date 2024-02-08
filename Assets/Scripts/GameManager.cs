@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -60,7 +61,28 @@ public class GameManager : MonoBehaviour
     {
         OnUpdateLives = null;
         OnUpdateScore = null;
+
+        if (sceneName == "Game Over")
+
+            WriteScore();
+
         SceneManager.LoadScene(sceneName);
+    }
+
+    private static void WriteScore()
+    {
+        // donde quiero escribir la informacion
+        string filePath = Path.Combine(Application.dataPath, "scores.txt");
+
+        //creo un stream de escritura para serializar el score
+        StreamWriter fileWriter = File.AppendText(filePath);
+
+        //escribo una linea de texto en el archivo de score
+        fileWriter.Write(m_score);
+
+        // cierro el stream de escritura
+        fileWriter.Close();
+
     }
 
 }
