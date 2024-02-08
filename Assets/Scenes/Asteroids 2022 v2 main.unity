@@ -849,33 +849,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -114686165645184816, guid: c2ed92572c9d9cc4eb55838def9c032b, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 797080344281993216, guid: c2ed92572c9d9cc4eb55838def9c032b, type: 3}
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
     - target: {fileID: 1464129697854685725, guid: c2ed92572c9d9cc4eb55838def9c032b, type: 3}
-      propertyPath: m_speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1464129697854685725, guid: c2ed92572c9d9cc4eb55838def9c032b, type: 3}
       propertyPath: m_Radius
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1464129697854685725, guid: c2ed92572c9d9cc4eb55838def9c032b, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 51430998674838667, guid: 26362c0f46062a045bf973171af6de74, type: 3}
-    - target: {fileID: 1464129697854685725, guid: c2ed92572c9d9cc4eb55838def9c032b, type: 3}
-      propertyPath: m_rotationSpeed
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 7369455536208452609, guid: c2ed92572c9d9cc4eb55838def9c032b, type: 3}
-      propertyPath: m_leftLimit
-      value: -13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7369455536208452609, guid: c2ed92572c9d9cc4eb55838def9c032b, type: 3}
-      propertyPath: m_rightLimit
-      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8333108447304276622, guid: c2ed92572c9d9cc4eb55838def9c032b, type: 3}
       propertyPath: m_RootOrder
@@ -1203,28 +1187,6 @@ MonoBehaviour:
   - 0.5
   - 2
   SpawnInterval: 1
---- !u!1 &1770519711 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 797080344281993216, guid: c2ed92572c9d9cc4eb55838def9c032b, type: 3}
-  m_PrefabInstance: {fileID: 1302878449}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1770519719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1770519711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d10a29c20a46b0d4a8d2b47fb7df8c8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_direccion: {x: 0, y: 0, z: 1}
-  m_speed: 0
-  m_MaxSpeed: 10
-  m_Isaccelerated: 1
-  m_Damping: 0.5
 --- !u!1 &1885926841
 GameObject:
   m_ObjectHideFlags: 0

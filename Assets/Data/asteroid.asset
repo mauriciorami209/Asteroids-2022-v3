@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9006a2b44b9398f4a996320caf44ec91, type: 3}
   m_Name: asteroid
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 0}
-  speed: 0
+  direction: {x: 0, y: 0, z: 1}
+  speed: 7
   maxSpeed: 0
   isAccelerated: 0
   damping: 0

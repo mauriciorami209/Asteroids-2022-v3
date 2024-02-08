@@ -61,7 +61,8 @@ public class BulletController : MonoBehaviour
             var Enemy = enemy[j];
             if (HasCollide2(Enemy))
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                GameManager.BulletPool.ReturnObject(this);
                 Destroy(Enemy.gameObject);
                 GameManager.Score += 100;
 

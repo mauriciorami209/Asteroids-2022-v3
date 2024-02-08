@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject m_BulletPrefab;
     public void Start()
     {
-        m_BulletPool = new Pool<BulletController>(2, m_BulletPrefab);
+        m_BulletPool = new Pool<BulletController>(5, m_BulletPrefab);
     }
 
     public static int Lives
